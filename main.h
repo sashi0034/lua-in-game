@@ -9,11 +9,13 @@
 #include <map>
 #include <math.h>
 
-#include <iostream>
-
-
-
 #define DEBUG
+
+#ifdef DEBUG
+
+#endif // DEBUG
+
+
 
 
 
@@ -198,6 +200,9 @@ namespace game
         
         class LuaDebugManager
         {
+            bool mHasLastWriteTime = false;
+            SYSTEMTIME mLastWriteTime;
+
         public:
             LuaDebugManager();
 
@@ -225,7 +230,7 @@ namespace game{
     useful::Random* Rand = new useful::Random();
 
     int GameState;
-
+    bool CanRestartProgram = false;
 
     resorce::Image* Img;
     lua_State* Lua;
